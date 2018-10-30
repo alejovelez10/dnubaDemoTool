@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: acta
+#
+#  id                 :bigint(8)        not null, primary key
+#  fecha              :date
+#  description        :text
+#  signature_delivery :text
+#  signature_requests :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2018-10-30
+  description: MyText
+  signature_delivery: MyText
+  signature_requests: MyText
+
+two:
+  fecha: 2018-10-30
+  description: MyText
+  signature_delivery: MyText
+  signature_requests: MyText

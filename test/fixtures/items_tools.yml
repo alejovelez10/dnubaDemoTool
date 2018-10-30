@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: items_tools
+#
+#  id           :bigint(8)        not null, primary key
+#  tools_id     :integer
+#  acta_id      :integer
+#  quantity     :integer
+#  unit_prince  :integer
+#  total_prince :integer
+#  firm         :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  actum_id     :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tools_id: 1
+  acta_id: 1
+  quantity: 1
+  unit_prince: 1
+  total_prince: 1
+  firm: MyText
+
+two:
+  tools_id: 1
+  acta_id: 1
+  quantity: 1
+  unit_prince: 1
+  total_prince: 1
+  firm: MyText

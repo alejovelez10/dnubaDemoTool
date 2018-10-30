@@ -1,0 +1,117 @@
+<%= nested_form_for(@actum, local: true) do |form| %>
+  <% if actum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(actum.errors.count, "error") %> prohibited this actum from being saved:</h2>
+
+      <ul>
+      <% actum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fecha %><br>
+    <%= form.date_select :fecha, class: "form form-control " %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= form.label :Descripcion %><br>
+    <%= form.text_area :description, class: "form form-control" ,:rows => 7 , id: "cambio1" %>
+  </div>
+  <br>
+
+  <div class="col-md-5" style="padding: 0px; float: left;">
+      <%= form.label :Firma_de_Entrega %><br>
+      <%= form.text_area :signature_delivery, class: "form form-control", id: "cambio2" %>
+  </div>
+
+  <div class="col-md-5" style="padding: 0px; float: right;">
+      <%= form.label :Firma_Solicitada %><br>
+      <%= form.text_area :signature_requests, class: "form form-control", id: "cambio3" %>
+  </div>
+  <br>
+
+  <div class="elements">
+    <%= form.fields_for :ItemsTool do |items|  %>
+       <div class="col-md-12 elements" style="padding-left: 0px;">
+        <div class="row">
+              <div class="col-md-3">  
+                <label>Cantidad</label>
+                <div class="input-group">
+                  <span class="input-group-btn">
+                   <%= items.link_to_remove class: "btn btn-danger", style: "border-radius: inherit;" do %>
+                     <i class="fa fa-trash" aria-hidden="true"></i>
+                   <% end %>
+                  </span>
+                  
+                    <%= items.select :tools_id,get_tool.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control', id: "hola" }%>
+                </div>
+             </div>
+        
+
+              <div class="col-md-3">
+                <label>Precio Unitario</label>
+                <%= items.number_field :unit_prince, class: "form form-control", :placeholder => ""  %>
+              </div>
+              <br>
+
+              <div class="col-md-3">
+                <label>Precio Total</label>
+                <%= items.number_field :total_prince, class: "form form-control", :placeholder => ""  %>
+              </div>
+              <br>
+
+              <div class="col-md-3">
+                <label>Firma</label>
+                <%= items.text_field :firm, class: "form form-control", :placeholder => ""  %>
+              </div>
+
+             <br>
+
+          </div>
+            <%= items.hidden_field :actum_id %>  
+        </div>
+        <br>
+    <% end %>
+    <div class="col-md-12" style="margin-top: 100px; padding: 0px;">
+    <%= form.link_to_add "Agregar", :ItemsTool, :class => 'btn btn-primary', style: "margin-top: 5px !important "  %>
+
+    </div>
+</div>
+  
+    <div class="col-md-12" style="margin-top: 100px; padding: 0px;"> 
+        <%= form.submit "Guardar", class: "btn btn-primary", style: "margin-top: 5px !important ", id: "hola"  %>
+  </div>
+<% end %>
+
+<script>
+
+$('.elements').on('change', 'select', function() {
+  
+  var cambio =  $(this).val();
+  console.log(cambio);
+  
+  that = this; 
+ 
+    $.get("/pruba/" + cambio, function(data, status){
+
+      console.log($(that).parent().parent().next().children('input'))
+      $(that).parent().parent().next().children('input').val(data.prince);
+
+        
+    });
+  
+
+
+});
+
+
+ /* $( ".buscador" ).select2({
+    theme: "bootstrap",
+    language: "en"
+  });*/
+
+</script>

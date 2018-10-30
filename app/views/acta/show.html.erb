@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @actum.fecha %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @actum.description %>
+</p>
+
+<p>
+  <strong>Signature delivery:</strong>
+  <%= @actum.signature_delivery %>
+</p>
+
+<p>
+  <strong>Signature requests:</strong>
+  <%= @actum.signature_requests %>
+</p>
+
+<%= link_to 'Edit', edit_actum_path(@actum) %> |
+<%= link_to 'Back', acta_path %>

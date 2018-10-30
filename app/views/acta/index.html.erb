@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Acta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Description</th>
+      <th>Signature delivery</th>
+      <th>Signature requests</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acta.each do |actum| %>
+      <tr>
+        <td><%= actum.fecha %></td>
+        <td><%= actum.description %></td>
+        <td><%= actum.signature_delivery %></td>
+        <td><%= actum.signature_requests %></td>
+        <td><%= link_to 'Show', actum %></td>
+        <td><%= link_to 'Edit', edit_actum_path(actum) %></td>
+        <td><%= link_to 'Destroy', actum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Actum', new_actum_path %>

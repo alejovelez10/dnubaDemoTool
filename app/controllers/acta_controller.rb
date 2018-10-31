@@ -18,7 +18,7 @@ class ActaController < ApplicationController
       respond_to do |format|
         format.html
         format.pdf do
-          render :pdf => "formatos",
+          render :pdf => "formatos1",
           :template => 'acta/pdfs/formatos.pdf.erb',
           :layout => 'pdf.html.erb',
           :show_as_html => params[:debug].present?
@@ -28,7 +28,7 @@ class ActaController < ApplicationController
 
 
 
-  
+
 
 
   def prueba

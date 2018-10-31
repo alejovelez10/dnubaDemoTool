@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="row">
+    <h1 align="center">Acta de Entrega</h1>
+      
+    <p align="center"> 
+      Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al
+
+    </p>
+
+    <div class="col-md-1 col-md-offset-3" style="margin-bottom: 400px;">
+        <table border="1" align="center">
+          <thead>
+            <tr>
+              <th width="200" >Fecha</th>
+              <th>Description</th>
+              <th>Signature delivery</th>
+              <th>Signature requests</th>
+            </tr>
+          </thead>
+
+
+          <tbody>
+              <tr>
+                <td><%= get_date_hora(@actum.created_at) %></td>
+                <td><%= @actum.description %></td>
+                <td>ASDASDASD</td>
+                <td>ASDASDASD</td>
+              </tr>
+          </tbody>
+
+        </table>
+    </div>
+
+    <div class="col-md-1 col-md-offset-3">
+        <table align="center" id="items">
+
+          <tbody>
+              <tr>
+                <td class="td">
+                  <b><p>ENTREGA:</p></b>
+
+
+                  <img src="data:image/pnd;base64,<%= @actum.signature_delivery%>" alt="">
+
+                </td>
+                <td class="td">
+                  <b><p>RECIBE:</p></b>
+                  
+                  <img src="data:image/pnd;base64,<%= @actum.signature_requests%>" alt="">
+
+                </td>
+              </tr>
+          </tbody>
+
+        </table>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+<!--
+<p>
+  <strong>Fecha:</strong>
+  <%= get_date_hora(@actum.created_at) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @actum.description %>
+</p>
+
+<p>
+  <strong>Signature delivery:</strong>
+  <%= @actum.signature_delivery %>
+</p>
+
+<p>
+  <strong>Signature requests:</strong>
+  <%= @actum.signature_requests %>
+</p>
+
+-->
+<style type="text/css">
+	h1{
+		margin-bottom: 100px;
+	}
+
+  p{
+    margin-bottom: 100px;
+  }
+
+  #items{
+    width: 100% !important;
+  }
+
+  .td{
+    width: 250px !important;
+    height: 250px !important;
+    padding: 10px !important;
+    border-bottom: 1px solid black;
+  }
+
+  .td p{
+    position: relative;
+    top: -60px !important;
+    font-size: 20px;
+  }
+</style>

@@ -16,11 +16,11 @@
   <tbody>
     <% @acta.each do |actum| %>
       <tr>
-        <td><%= actum.fecha %></td>
+        <td><%= get_date_hora(actum.created_at) %></td>
         <td><%= actum.description %></td>
         <td><%= actum.signature_delivery %></td>
         <td><%= actum.signature_requests %></td>
-        <td><%= link_to 'Show', actum %></td>
+        <td><%= link_to image_tag("https://mybc1.s3.amazonaws.com/uploads/rseguimiento/evidencia/243/52ff0e80b07d28b590bbc4b30befde52.png"),acta_pdf_path(actum.id, :format => "pdf"), target:"_blank", class: "icon-export"%></td>
         <td><%= link_to 'Edit', edit_actum_path(actum) %></td>
         <td><%= link_to 'Destroy', actum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -31,3 +31,8 @@
 <br>
 
 <%= link_to 'New Actum', new_actum_path %>
+<style type="text/css">
+  td img{
+    width: 56px;
+  }
+</style>

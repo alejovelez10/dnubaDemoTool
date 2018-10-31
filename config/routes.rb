@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'tools#index'
+  root 'acta#index'
 
   get "pruba/:id", to: "acta#prueba", as: "pruba"
+
+  get "acta_pdf/:id", to: "acta#acta_pdf", as: "acta_pdf"
   
   resources :tools
   resources :acta

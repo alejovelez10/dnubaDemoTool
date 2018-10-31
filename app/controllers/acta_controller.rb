@@ -10,6 +10,24 @@ class ActaController < ApplicationController
   # GET /acta/1
   # GET /acta/1.json
   def show
+
+  end
+
+  def acta_pdf
+    @actum = Actum.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render :pdf => "Formatos",
+          :template => 'acta/pdfs/formatos.pdf.erb',
+          :layout => 'pdf.html.erb',
+          margin: {
+                      top: 15
+                       },
+
+          :show_as_html => params[:debug].present?
+      end
+    end 
   end
 
 

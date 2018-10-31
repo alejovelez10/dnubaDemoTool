@@ -1,0 +1,36 @@
+<%= form_with(model: employed, local: true) do |form| %>
+  <% if employed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employed.errors.count, "error") %> prohibited this employed from being saved:</h2>
+
+      <ul>
+      <% employed.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-4">
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: "form form-control" %>
+  </div>
+  <br>
+
+  <div class="col-md-4">
+    <%= form.label :cedula %><br>
+    <%= form.number_field :cedula, class: "form form-control" %>
+  </div>
+  <br>
+
+  <div class="col-md-4">
+    <%= form.label :cargo %><br>
+    <%= form.text_field :cargo, class: "form form-control" %>
+  </div>
+  <br>
+
+  <div class="col-md-4">
+    <%= form.submit "Guardar", class: "btn btn-info" %>
+  </div>
+
+<% end %>

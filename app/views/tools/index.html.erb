@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tools</h1>
-
-<table>
-  <thead>
+<h1 align="center">Tools</h1>
+<br>
+<table class="table" style="padding: ">
+  <thead class="table-primary">
     <tr>
       <th>Name</th>
       <th>Prince</th>
-      <th colspan="3"></th>
+      <th colspan="3"><%= link_to 'Nueva Herramienta', new_tool_path, class: "btn btn-primary", style: "float: right;"  %></th>
     </tr>
   </thead>
 
@@ -16,14 +16,18 @@
       <tr>
         <td><%= tool.name %></td>
         <td><%= tool.prince %></td>
-        <td><%= link_to 'Show', tool %></td>
-        <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
-        <td><%= link_to 'Destroy', tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', tool %>
+
+          <%= link_to edit_tool_path(tool), class: "btn btn-primary", title: "Editar" do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end -%>
+
+          <%= link_to  tool, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", title: "Elininar" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Tool', new_tool_path %>

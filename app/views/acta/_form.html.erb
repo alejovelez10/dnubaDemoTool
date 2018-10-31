@@ -11,41 +11,38 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= form.label :fecha %><br>
     <%= form.date_select :fecha, class: "form form-control " %>
   </div>
-  <br>
+  <br><br>
 
-  <div class="field">
-    <%= form.label :Descripcion %><br>
-    <%= form.text_area :description, class: "form form-control" ,:rows => 7 , id: "cambio1" %>
+  <div class="row">
+    <div class="col-md-4" style="margin-left: 187px;">
+      <p align="center">Nombre Del Encargado</p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-user" style = "color: #f1f1f1;" ></i></span>
+            <%= form.select :employed_id,get_employed.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'}%>
+        </div>
+    </div>
+    <br>
+
+    <div class="col-md-4" style="float: right;">
+      <p align="center">Nombre Del que recibe</p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-user" style = "color: #f1f1f1;" ></i></span>
+            <%= form.select :employed_id,get_employed.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control' }%>
+        </div>
+    </div>
   </div>
-  <br>
-
-  <div class="col-md-5" style="padding: 0px; float: left;">
-      <%= form.label :Firma_de_Entrega %><br>
-      <%= form.text_area :signature_delivery, class: "form form-control",  id: "txtSignature" %>
-  </div>
-
-  <div class="col-md-5" style="padding: 0px; float: right;">
-      <%= form.label :Firma_Solicitada %><br>
-      <%= form.text_area :signature_requests, class: "form form-control", id: "txtSignature2" %>
-  </div>
-  <br>
-
-  <div class="col-md-3" style="padding: 0px; margin-top: 100px;">
-    <label>Selector</label>
-    <input type="text" name="" value="1" id ="selector" class="form form-control">
-  </div>
-
 
   <div class="elements">
     <%= form.fields_for :ItemsTool do |items|  %>
        <div class="col-md-12 elements" style="padding-left: 0px;">
         <div class="row">
-              <div class="col-md-3">  
-                <label>Cantidad</label>
+              <div class="col-md-4">  
+                <label>Herramienta</label>
                 <div class="input-group">
                   <span class="input-group-btn">
                    <%= items.link_to_remove class: "btn btn-danger", style: "border-radius: inherit;" do %>
@@ -59,33 +56,48 @@
         
 
               <div class="col-md-3">
-                <label>Precio Unitario</label>
+                <label>Cantidad</label>
                 <%= items.number_field :unit_prince, class: "form form-control", :placeholder => ""  %>
               </div>
               <br>
 
-              <div class="col-md-3">
-                <label>Precio Total</label>
-                <%= items.number_field :total_prince, class: "form form-control", :placeholder => ""  %>
-              </div>
-              <br>
-
-              <div class="col-md-3">
-                <label>Firma</label>
-                <%= items.text_field :firm, class: "form form-control", :placeholder => ""  %>
-              </div>
-
-             <br>
           </div>
             <%= items.hidden_field :actum_id %>  
         </div>
         <br>
     <% end %>
-    <div class="col-md-12" style="margin-top: 100px; padding: 0px;">
+    <div class="col-md-12" style="margin-top: 50px; padding: 0px;">
     <%= form.link_to_add "Agregar", :ItemsTool, :class => 'btn btn-primary', style: "margin-top: 5px !important "  %>
 
     </div>
 </div>
+<br>
+  <div class="field">
+    <%= form.label :Observaciones %><br>
+    <%= form.text_area :description, class: "form form-control" ,:rows => 7 , id: "cambio1" %>
+  </div>
+
+  <br>
+
+  <div class="col-md-5" style="padding: 0px; float: left;  resize: none;">
+      <%= form.label :Firma_de_Entrega %><br>
+      <%= form.text_area :signature_delivery, class: "form form-control",  id: "txtSignature",:rows => 8 %>
+      <br>
+      <p align="center" id="selector1" style="cursor: pointer;">Selector <span class="badge badge-pill badge-primary">1</span></p>
+  </div>
+
+  <div class="col-md-5" style="padding: 0px; float: right;  resize: none;">
+      <%= form.label :Firma_Solicitada %><br>
+      <%= form.text_area :signature_requests, class: "form form-control", id: "txtSignature2",:rows => 8 %>
+      <br>
+      <p align="center" id="selector2" style="cursor: pointer;">Selector <span class="badge badge-pill badge-primary">2</span></p>
+  </div>
+  <br>
+
+  <div class="col-md-3" style="padding: 0px; margin-top: 290px;">
+    <label>Selector</label>
+    <input type="text" name="" id ="selector" class="form form-control">
+  </div>
   
     <div class="col-md-12" style="margin-top: 100px; padding: 0px;"> 
         <%= form.submit "Guardar", class: "btn btn-primary", style: "margin-top: 5px !important ", id: "hola"  %>
@@ -113,6 +125,15 @@ $('.elements').on('change', 'select', function() {
 
 
 });
+
+$("#selector1").click(function(event) {
+    $("#selector").val(1)
+});
+
+$("#selector2").click(function(event) {
+    $("#selector").val(2)
+});
+
 
 
  /* $( ".buscador" ).select2({
@@ -507,3 +528,10 @@ function AboutBox()
   </body>
 </html>
 
+<style type="text/css">
+  .input-group-addon{
+    background: #0069d9;
+    padding: 7px 11px 3px 11px;
+    border-radius: 2px;
+  }
+</style>

@@ -4,6 +4,10 @@ module ApplicationHelper
 		Tool.all
 	end
 
+	def get_employed
+		Employed.all
+	end
+
 	def get_date_hora(fecha)
 
 		if fecha != nil

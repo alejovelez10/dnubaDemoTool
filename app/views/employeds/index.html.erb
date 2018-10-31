@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Empleados</h1>
+<br>
+<table class="table">
+  <thead class="table-primary">
+    <tr>
+      <th>Name</th>
+      <th>Cedula</th>
+      <th>Cargo</th>
+      <th>Actum</th>
+      <th colspan="3"><%= link_to 'Nuevo Empleado', new_employed_path, class: "btn btn-primary", style: "float: right;" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employeds.each do |employed| %>
+      <tr>
+        <td><%= employed.name %></td>
+        <td><%= employed.cedula %></td>
+        <td><%= employed.cargo %></td>
+        <td><%= link_to 'Show', employed %></td>
+        <td><%= link_to 'Edit', edit_employed_path(employed) %></td>
+        <td><%= link_to 'Destroy', employed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

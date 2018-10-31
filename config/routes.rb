@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :employeds
   root 'acta#index'
 
   get "pruba/:id", to: "acta#prueba", as: "pruba"

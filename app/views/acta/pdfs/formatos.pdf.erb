@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <h1 align="center">Acta de Entrega</h1>
-      
-    <p align="center"> 
-      Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al
 
+
+
+    <p align="center"> 
+      <%= @actum.fecha %>, se hace entrega al señor <%= @actum.employed.name %>, identificado con CC No. <%= @actum.employed.cedula %>, de los siguientes elementos de Trabajo
     </p>
 
     <div class="col-md-1 col-md-offset-3" style="margin-bottom: 400px;">
@@ -36,18 +37,23 @@
 
           <tbody>
               <tr>
-                <td class="td">
+                <td class="td" style=" border-bottom: 1px solid black;">
                   <b><p>ENTREGA:</p></b>
 
 
                   <img src="data:image/pnd;base64,<%= @actum.signature_delivery%>" alt="">
-
+                  <b><small>Supervisor de planta dnuba<br>
+                    <%= @actum.employed.name %>
+                  </small></b>
                 </td>
-                <td class="td">
+                <td></td>
+                <td class="td" style=" border-bottom: 1px solid black;">
                   <b><p>RECIBE:</p></b>
                   
                   <img src="data:image/pnd;base64,<%= @actum.signature_requests%>" alt="">
-
+                  <b><small>Maquinista #1<br>
+                    <%= @actum.employed.name %>
+                  </small></b>
                 </td>
               </tr>
           </tbody>
@@ -102,12 +108,18 @@
     width: 250px !important;
     height: 250px !important;
     padding: 10px !important;
-    border-bottom: 1px solid black;
   }
 
   .td p{
     position: relative;
     top: -60px !important;
     font-size: 20px;
+  }
+
+  .td small{
+    position: relative;
+    top: 95px !important;
+    padding-left: 0px !important;
+    text-align: center;
   }
 </style>

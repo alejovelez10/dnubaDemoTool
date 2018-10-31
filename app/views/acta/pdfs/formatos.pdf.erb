@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="row">
+    <h1 align="center">Acta de Entrega</h1>
+
+
+
+    <p align="center"> 
+      <%= @actum.fecha %>, se hace entrega al señor <%= @actum.employed.name %>, identificado con CC No. <%= @actum.employed.cedula %>, de los siguientes elementos de Trabajo
+    </p>
+
+    <div class="col-md-1 col-md-offset-3" style="margin-bottom: 400px;">
+        <table border="1" align="center">
+          <thead>
+            <tr>
+              <th width="200" >Fecha</th>
+              <th>Description</th>
+              <th>Signature delivery</th>
+              <th>Signature requests</th>
+            </tr>
+          </thead>
+
+
+          <tbody>
+              <tr>
+                <td><%= get_date_hora(@actum.created_at) %></td>
+                <td><%= @actum.description %></td>
+                <td>ASDASDASD</td>
+                <td>ASDASDASD</td>
+              </tr>
+          </tbody>
+
+        </table>
+    </div>
+
+    <div class="col-md-1 col-md-offset-3">
+        <table align="center" id="items">
+
+          <tbody>
+              <tr>
+                <td class="td" style=" border-bottom: 1px solid black;">
+                  <b><p>ENTREGA:</p></b>
+
+
+                  <img src="data:image/pnd;base64,<%= @actum.signature_delivery%>" alt="">
+                  <b><small>Supervisor de planta dnuba<br>
+                    <%= @actum.employed.name %>
+                  </small></b>
+                </td>
+                <td></td>
+                <td class="td" style=" border-bottom: 1px solid black;">
+                  <b><p>RECIBE:</p></b>
+                  
+                  <img src="data:image/pnd;base64,<%= @actum.signature_requests%>" alt="">
+                  <b><small>Maquinista #1<br>
+                    <%= @actum.employed.name %>
+                  </small></b>
+                </td>
+              </tr>
+          </tbody>
+
+        </table>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+<!--
+<p>
+  <strong>Fecha:</strong>
+  <%= get_date_hora(@actum.created_at) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @actum.description %>
+</p>
+
+<p>
+  <strong>Signature delivery:</strong>
+  <%= @actum.signature_delivery %>
+</p>
+
+<p>
+  <strong>Signature requests:</strong>
+  <%= @actum.signature_requests %>
+</p>
+
+-->
+<style type="text/css">
+	h1{
+		margin-bottom: 100px;
+	}
+
+  p{
+    margin-bottom: 100px;
+  }
+
+  #items{
+    width: 100% !important;
+  }
+
+  .td{
+    width: 250px !important;
+    height: 250px !important;
+    padding: 10px !important;
+  }
+
+  .td p{
+    position: relative;
+    top: -60px !important;
+    font-size: 20px;
+  }
+
+  .td small{
+    position: relative;
+    top: 95px !important;
+    padding-left: 0px !important;
+    text-align: center;
+  }
+</style>

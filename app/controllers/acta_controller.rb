@@ -95,6 +95,6 @@ class ActaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def actum_params
-      params.require(:actum).permit(:fecha, :description, :signature_delivery, :signature_requests, :employed_id, ItemsTool_attributes: [:id, :tool_id, :actum_id, :quantity, :unit_prince, :total_prince, :firm, :_destroy])
+      params.require(:actum).permit(:fecha, :description, :signature_delivery, :signature_requests, :employed_id, items_tools_attributes: [:id, :tools_id, :actum_id, :quantity, :unit_prince, :total_prince, :firm, :_destroy])
     end
 end

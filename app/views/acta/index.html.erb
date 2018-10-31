@@ -6,9 +6,9 @@
   <thead class="table-primary">
     <tr >
       <th>Fecha</th>
-      <th>Description</th>
-      <th>Signature delivery</th>
-      <th>Signature requests</th>
+      <th>observaciones</th>
+      <th>Entrego</th>
+      <th>Recibio</th>
       <th colspan="3"><%= link_to 'Nueva Acta', new_actum_path, class: "btn btn-primary", style: "float: right;" %></th>
     </tr>
   </thead>
@@ -16,11 +16,16 @@
   <tbody>
     <% @acta.each do |actum| %>
       <tr>
-        <td><%= actum.fecha %></td>
+        <td><%= get_only_date(actum.fecha) %></td>
         <td><%= actum.description %></td>
-        <td>
+        <td><%= actum.employed.name %></td>
+        <td><%= actum.employed.name%></td>
 
-          <%= link_to "asdasd" , actum  %>
+        <td style="float: right;">
+
+          <%= link_to actum, class: "btn btn-primary", title: "Ver" do %>
+             <i class="far fa-eye"></i>
+          <% end -%>
 
           <%= link_to acta_pdf_path(actum.id, :format => "pdf"), target:"_blank", class: "btn btn-info", title: "Generar Pdf" do%>
             <i class="far fa-file-pdf"></i>

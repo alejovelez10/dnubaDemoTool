@@ -26,4 +26,18 @@ module ApplicationHelper
 		end 
 	end
 
+	def get_only_date(fecha)
+   
+		if fecha != nil
+		    ds = fecha.strftime("%w") #Dia de la semana
+		    y = fecha.strftime("%Y") #Año
+		    dm = fecha.strftime("%d") #Dia del mes
+		    m = fecha.strftime("%m") # Mes del Año
+		    meses = {"01" => "Enero", "02" => "Febrero","03"=>"Marzo","04" => "Abril", "05" => "Mayo","06"=> "Junio" ,"07"=> "Julio", "08" => "Agosto", "09"=> "Septiembre" ,"10"=> "Octubre","11" => "Noviembre" ,"12" => "Diciembre" }
+		    dias = {"0" => "Domingo", "1" => "Lunes","2"=>"Martes","3" => "Miercoles", "4" => "Jueves","5"=> "Viernes" ,"6" =>"Sabado"}
+		    return  dias[ds] + " " + dm + " de " + meses[m] + ", " + y  
+		#dias[ds] + ", " +
+		end 
+	end
+
 end

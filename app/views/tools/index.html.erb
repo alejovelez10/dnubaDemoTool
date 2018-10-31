@@ -17,7 +17,9 @@
         <td><%= tool.name %></td>
         <td><%= tool.prince %></td>
         <td>
-          <%= link_to 'Show', tool %>
+          <%= link_to tool, class: "btn btn-primary", title: "Ver" do %>
+             <i class="far fa-eye"></i>
+          <% end -%>
 
           <%= link_to edit_tool_path(tool), class: "btn btn-primary", title: "Editar" do %>
             <i class="fas fa-pencil-alt"></i>

@@ -5,28 +5,28 @@
 
 
     <p align="center"> 
-      <%= @actum.fecha %>, se hace entrega al señor <%= @actum.employed.name %>, identificado con CC No. <%= @actum.employed.cedula %>, de los siguientes elementos de Trabajo
+      <%= get_only_date(@actum.fecha) %>, se hace entrega al señor <%= @actum.employed.name %>, identificado con CC No. <%= @actum.employed.cedula %>, de los siguientes elementos de Trabajo
     </p>
 
-    <div class="col-md-1 col-md-offset-3" style="margin-bottom: 400px;">
-        <table border="1" align="center">
-          <thead>
+    <div class="col-md-1 col-md-offset-3" style="margin-bottom: 200px;">
+        <table border="1px" align="center">
+          <thead >
             <tr>
-              <th width="200" >Fecha</th>
-              <th>Description</th>
-              <th>Signature delivery</th>
-              <th>Signature requests</th>
+              <th style="width: 60px !important;">N° Item</th>
+              <th style="width: 200px !important;">Descripcion</th>
+              <th style="width: 50px !important;">Cantidad</th>
             </tr>
           </thead>
 
 
           <tbody>
+            <% @actum.items_tools.each_with_index do |tool, posicion| %>
               <tr>
-                <td><%= get_date_hora(@actum.created_at) %></td>
-                <td><%= @actum.description %></td>
-                <td>ASDASDASD</td>
-                <td>ASDASDASD</td>
+                <td align="center"><%= posicion + 1 %></td>
+                <td align="center"><%= tool.tools.name %></td>
+                <td><%= tool.quantity   %></td>
               </tr>
+            <% end -%>
           </tbody>
 
         </table>
@@ -42,7 +42,7 @@
 
 
                   <img src="data:image/pnd;base64,<%= @actum.signature_delivery%>" alt="">
-                  <b><small>Supervisor de planta dnuba<br>
+                  <b><small><%= @actum.employed.cargo %> de planta dnuba<br>
                     <%= @actum.employed.name %>
                   </small></b>
                 </td>
@@ -51,7 +51,7 @@
                   <b><p>RECIBE:</p></b>
                   
                 <img src="data:image/pnd;base64,<%= @actum.signature_requests%>" alt="">
-                  <b><small>Maquinista #1<br>
+                  <b><small><%= @actum.employed.cargo %> #1<br>
                     <%= @actum.employed.name %>
                   </small></b>
                 </td>

@@ -15,5 +15,6 @@
 #
 
 class ItemsTool < ApplicationRecord
-	belongs_to :actum , inverse_of: :ItemsTool
+	belongs_to :actum , inverse_of: :items_tools
+	belongs_to :tools , :class_name => 'Tool'
 end

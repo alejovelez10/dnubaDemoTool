@@ -10,4 +10,5 @@
 #
 
 class Tool < ApplicationRecord
+	has_many :items_tools
 end

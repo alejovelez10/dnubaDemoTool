@@ -38,7 +38,7 @@
   </div>
 
   <div class="elements">
-    <%= form.fields_for :ItemsTool do |items|  %>
+    <%= form.fields_for :items_tools do |items|  %>
        <div class="col-md-12 elements" style="padding-left: 0px;">
         <div class="row">
               <div class="col-md-4">  
@@ -57,7 +57,7 @@
 
               <div class="col-md-3">
                 <label>Cantidad</label>
-                <%= items.number_field :unit_prince, class: "form form-control", :placeholder => ""  %>
+                <%= items.number_field :quantity, class: "form form-control", :placeholder => ""  %>
               </div>
               <br>
 
@@ -67,7 +67,7 @@
         <br>
     <% end %>
     <div class="col-md-12" style="margin-top: 50px; padding: 0px;">
-    <%= form.link_to_add "Agregar", :ItemsTool, :class => 'btn btn-primary', style: "margin-top: 5px !important "  %>
+    <%= form.link_to_add "Agregar", :items_tools, :class => 'btn btn-primary', style: "margin-top: 5px !important "  %>
 
     </div>
 </div>

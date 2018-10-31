@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'wkhtmltopdf-binary-edge'
+
 gem 'wkhtmltopdf-heroku'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

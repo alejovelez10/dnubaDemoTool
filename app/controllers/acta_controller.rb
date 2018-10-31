@@ -21,10 +21,6 @@ class ActaController < ApplicationController
           render :pdf => "Formatos",
           :template => 'acta/pdfs/formatos.pdf.erb',
           :layout => 'pdf.html.erb',
-          margin: {
-                      top: 15
-                       },
-
           :show_as_html => params[:debug].present?
       end
     end 

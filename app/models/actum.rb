@@ -15,5 +15,5 @@
 class Actum < ApplicationRecord
  	has_many :ItemsTool, inverse_of: :actum, dependent: :destroy
 	accepts_nested_attributes_for :ItemsTool, :allow_destroy => true
-	belongs_to :employed
+	belongs_to :employed, optional: true
 end

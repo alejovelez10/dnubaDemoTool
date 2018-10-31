@@ -27,6 +27,10 @@ class ActaController < ApplicationController
   end
 
 
+
+  
+
+
   def prueba
     @tool = Tool.find(params[:id])
 

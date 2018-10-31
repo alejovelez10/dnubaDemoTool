@@ -11,7 +11,7 @@
 #
 
 class Employed < ApplicationRecord
-	has_many :Actum, optional: true
+	has_many :Actum
 	#belongs_to :employed_one, :class_name => 'Employed'
 	#belongs_to :employed_two, :class_name => 'Employed'
 end
